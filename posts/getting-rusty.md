@@ -1,4 +1,5 @@
-feo::title::Getting Rusty
-feo::published::True
-feo::publish_date::2023-02-15
-
+---
+title: Getting Rusty
+published: True
+publish_date: 2023-02-15
+---
