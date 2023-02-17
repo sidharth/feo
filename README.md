@@ -9,8 +9,8 @@ cargo run
 ## TODOs
 
 Ingestion:  
-[ ] Read all Markdown files from ~/posts/  
-[ ] Parse all content into Post struct types.  
+[✅] Read all Markdown files from ~/posts/  
+[✅] Parse all content into Post struct types.  
 
 Generation:  
 [ ] Define post template.  
