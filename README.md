@@ -39,3 +39,6 @@ Generation:
 Styling:
 [] Make default posts page look good.
 [] Make default index page look good.
+
+Bugs:
+[] Can't include `:` in posts because it gets caught by YAML parser...
