@@ -1,3 +1,7 @@
+use serde::{Serialize, Deserialize};
+
+
+#[derive(Serialize, Deserialize)]
 pub struct PostMeta {
     pub slug: String,
     pub title: String,

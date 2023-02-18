@@ -3,21 +3,45 @@ extern crate yaml_rust;
 mod models;
 
 use handlebars::Handlebars;
+use serde_json::json;
 use std::collections::BTreeMap;
 
 fn main() {
     std::env::set_var("RUST_BACKTRACE", "1");
     let posts = parse_posts();
 
+    // Generate HTML for each post.
     for post in &posts {
-        let generated_html = get_post_page(&post);
+        let generated_post_html = get_post_page(&post);
         // Create directory if it doesn't exist.
         std::fs::create_dir_all("gen").unwrap();
         // Save the generated HTML to a file.
-        std::fs::write(format!("gen/{}.html", post.meta.slug), &generated_html).unwrap();
+        std::fs::write(format!("gen/{}.html", post.meta.slug), &generated_post_html).unwrap();
     }
+
+    // Generate the index page.
+    let generated_index_html = get_index_page(&posts);
+    // Save the generated HTML to a file.
+    std::fs::write("gen/index.html", &generated_index_html).unwrap();
+
     println!("Generated {} post(s).", posts.len());
     
+}
+
+fn get_index_page(posts: &Vec<models::Post>) -> String {
+    // Get the index template from the file.
+    let mut handlebars = Handlebars::new();
+    let index_template = std::fs::read_to_string("templates/index.hbs").unwrap();
+    // Register the template, and check that it's okay.
+    assert!(handlebars.register_template_string("index_template", index_template).is_ok());
+
+    // Put the post data into a render-able JSON.
+    let data = json!({
+        "post_meta": posts.iter().map(|p| {&p.meta}).collect::<Vec<&models::PostMeta>>()
+    });
+
+    // Render the data onto the template.
+    return handlebars.render("index_template", &data).unwrap();
 }
 
 fn get_post_page(post: &models::Post) -> String {
