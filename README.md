@@ -24,6 +24,13 @@ Run this from the root directory of the project.
 cargo run
 ```
 
+This generates static HTML pages for all posts + the index + CSS styles inside the `gen/` folder.
+
+### Styling.
+
+Add styles in `/styles/common.css`. When you run build with `cargo run`, it copies 
+
+
 ## TODOs
 
 Ingestion:  
@@ -31,14 +38,14 @@ Ingestion:
 [✅] Parse all content into Post struct types.  
 
 Generation:  
-[✅] Define post template.  
+[✅] Define base post template.  
 [✅] Generate posts from post array.  
-[ ] Define index template.  
-[ ] Generate index from post array.  
+[✅] Define base index template.  
+[✅] Generate index from post array.  
 
-Styling:
-[] Make default posts page look good.
-[] Make default index page look good.
+Styling:  
+[] Make default posts page look good.  
+[] Make default index page look good.  
 
-Bugs:
+Bugs:  
 [] Can't include `:` in posts because it gets caught by YAML parser...

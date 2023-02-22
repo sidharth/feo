@@ -25,6 +25,12 @@ fn main() {
     std::fs::write("gen/index.html", &generated_index_html).unwrap();
 
     println!("Generated {} post(s).", posts.len());
+
+
+    // Copy the CSS file to the gen directory.
+    // Create directory if it doesn't exist.
+    std::fs::create_dir_all("gen/styles").unwrap();
+    std::fs::copy("styles/common.css", "gen/styles/common.css").unwrap();
     
 }
 

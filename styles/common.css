@@ -1,0 +1,10 @@
+.site-title {
+    font-family: 'Fira Mono', monospace;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
