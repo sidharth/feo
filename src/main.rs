@@ -28,10 +28,18 @@ fn main() {
 
 
     // Copy the CSS file to the gen directory.
-    // Create directory if it doesn't exist.
     std::fs::create_dir_all("gen/styles").unwrap();
     std::fs::copy("styles/common.css", "gen/styles/common.css").unwrap();
-    
+
+    // Copy all of the files in assets/ into the gen/assets directory.
+    std::fs::create_dir_all("gen/assets").unwrap();
+    let assets_paths = get_asset_paths();
+    for asset_path in assets_paths {
+        // get last part of path.
+        let file_name = asset_path.split("/").last().unwrap();
+
+        std::fs::copy(&asset_path, format!("gen/assets/{}", file_name)).unwrap();
+    }
 }
 
 fn get_index_page(posts: &Vec<models::Post>) -> String {
@@ -65,6 +73,20 @@ fn get_post_page(post: &models::Post) -> String {
 
     // Render the data onto the template.
     return handlebars.render("post_template", &data).unwrap();
+}
+
+// Get all the site assets (eg. images).
+fn get_asset_paths() -> Vec<String> {
+    let mut paths = Vec::new();
+    for entry in std::fs::read_dir("assets").unwrap() {
+        let entry = entry.unwrap();
+        let path = entry.path();
+        if path.is_file() {
+            paths.push(path.to_str().unwrap().to_string());
+        }
+    }
+
+    paths
 }
 
 // Read all markdown files in the posts directory.

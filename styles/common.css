@@ -1,17 +1,30 @@
 body {
     background-color: #fff;
+    font-family: 'Inter', sans-serif;
+    line-height: 170%;
 }
 
 .site-title {
     font-family: 'Fira Mono', monospace;
 }
 
+.site-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
 .page-container {
     margin: 0 auto;
-    width: 80%;
-    max-width: 1000px;
-    padding: 0 20px;
+    width: 70%;
+    max-width: 650px;
 }
+
+/* Index styles. */
 
 .index-container {
     margin-top: 2em;
@@ -27,6 +40,8 @@ body {
 }
 .post-index-link:hover {
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+
 }
 
 .post-index-date {
@@ -35,6 +50,31 @@ body {
 }
 
 .post-index-title {
-    font-family: 'Inter', sans-serif;
     margin-left: 0.5em;
+}
+
+
+/* Post styles. */
+
+.post-container {
+    margin-top: 2em;
+}
+
+.post-publish-date {
+    font-family: 'Fira Mono', monospace;
+    color:#888;
+}
+
+.post-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Styles for responsiveness for mobile. */
+@media only screen and (max-width: 600px) {
+    .page-container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0.25em;
+    }
 }

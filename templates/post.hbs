@@ -1,9 +1,22 @@
 <html>
     <head>
+        <link href="styles/common.css" rel="stylesheet" type="text/css" />
+        {{!-- Fonts --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
         <title>{{title}}</title>
     </head>
     <body>
-        {{publish_date}}
-        {{{content}}}
+
+        <div class="page-container">
+            <h3 class="site-title">sidharth::<a href="index.html">blog</a></h3>
+            <div class="post-container">
+                <div class="post-title"><b>{{title}}</b></div>
+                <div class="post-publish-date">{{publish_date}}</div>
+                <div class="post-content">{{{content}}}</div>
+            </div>
+        </div>
+        
     </body>
 </html>
