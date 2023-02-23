@@ -1,10 +1,40 @@
+body {
+    background-color: #fff;
+}
+
 .site-title {
     font-family: 'Fira Mono', monospace;
 }
 
-.container {
+.page-container {
     margin: 0 auto;
     width: 80%;
     max-width: 1000px;
     padding: 0 20px;
+}
+
+.index-container {
+    margin-top: 2em;
+}
+
+.index-item-container {
+    margin-top:0.5em;
+}
+
+.post-index-link {
+    text-decoration: none;
+    color: inherit;
+}
+.post-index-link:hover {
+    text-decoration: underline;
+}
+
+.post-index-date {
+    font-family: 'Fira Mono', monospace;
+    color:#888;
+}
+
+.post-index-title {
+    font-family: 'Inter', sans-serif;
+    margin-left: 0.5em;
 }

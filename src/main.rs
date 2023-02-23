@@ -81,9 +81,6 @@ fn parse_posts() -> Vec<models::Post> {
 
             // (1) Extract the frontmatter metadata.
             // Get the YAML metadata at the beginning of the post.
-
-            println!("contents: {}", contents);
-
             let doc = &yaml_rust::YamlLoader::load_from_str(&contents).unwrap()[0];
             let frontmatter = markdown::Options {
                 parse: markdown::ParseOptions {
