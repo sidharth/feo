@@ -1,5 +1,5 @@
 # Feo
-A no-frills static site generator written in Rust.
+A no-frills static site generator written in Rust. 
 
 ### Writing
 

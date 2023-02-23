@@ -7,7 +7,7 @@ use serde_json::json;
 use std::collections::BTreeMap;
 
 fn main() {
-    std::env::set_var("RUST_BACKTRACE", "1");
+    std::env::set_var("RUST_BACKTRACE", "full");
     let posts = parse_posts();
 
     // Generate HTML for each post.
@@ -92,7 +92,6 @@ fn get_asset_paths() -> Vec<String> {
 // Read all markdown files in the posts directory.
 fn parse_posts() -> Vec<models::Post> {
     let mut posts = Vec::new();
-
     for entry in std::fs::read_dir("posts").unwrap() {
         let entry = entry.unwrap();
         let path = entry.path();
@@ -100,10 +99,11 @@ fn parse_posts() -> Vec<models::Post> {
         if path.is_file() {
             // (0) Get the raw content from the file.
             let contents = std::fs::read_to_string(path).unwrap();
+            let yaml_contents = contents.split("---").nth(1).unwrap();
 
             // (1) Extract the frontmatter metadata.
             // Get the YAML metadata at the beginning of the post.
-            let doc = &yaml_rust::YamlLoader::load_from_str(&contents).unwrap()[0];
+            let doc = &yaml_rust::YamlLoader::load_from_str(&yaml_contents).unwrap()[0];
             let frontmatter = markdown::Options {
                 parse: markdown::ParseOptions {
                     constructs: markdown::Constructs {
