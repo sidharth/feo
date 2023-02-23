@@ -24,6 +24,18 @@ Run this from the root directory of the project.
 cargo run
 ```
 
+### Deploying
+
+I'm choosing to host with Netlify since they have a pretty good free tier.
+
+From [Netlify Getting Started Guide][https://docs.netlify.com/cli/get-started/]
+
+```
+brew reinstall netlify-cli
+netlify login
+```
+
+
 This generates static HTML pages for all posts + the index + CSS styles inside the `gen/` folder.
 
 ### Styling.
@@ -33,23 +45,3 @@ Add styles in `styles/common.css`. During the build, it copies the stylesheet to
 ### Assets
 
 Add assets (images, raw files etc) in `assets/`. During the build, it copies assets to `gen/assets/`.
-
-
-## TODOs
-
-Ingestion:  
-[✅] Read all Markdown files from ~/posts/  
-[✅] Parse all content into Post struct types.  
-
-Generation:  
-[✅] Define base post template.  
-[✅] Generate posts from post array.  
-[✅] Define base index template.  
-[✅] Generate index from post array.  
-
-Styling:  
-[✅] Make default posts page look good.  
-[✅] Make default index page look good.  
-
-Bugs:  
-[✅] Can't include `:` in posts because it gets caught by YAML parser...
