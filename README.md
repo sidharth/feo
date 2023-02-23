@@ -48,8 +48,8 @@ Generation:
 [✅] Generate index from post array.  
 
 Styling:  
-[] Make default posts page look good.  
-[] Make default index page look good.  
+[✅] Make default posts page look good.  
+[✅] Make default index page look good.  
 
 Bugs:  
-[] Can't include `:` in posts because it gets caught by YAML parser...
+[✅] Can't include `:` in posts because it gets caught by YAML parser...
