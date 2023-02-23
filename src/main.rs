@@ -114,6 +114,9 @@ fn parse_posts() -> Vec<models::Post> {
         }
     }
 
+    // Sort by publish date.
+    posts.sort_by(|a, b| b.meta.publish_date.cmp(&a.meta.publish_date));
+
     posts
 }
 
