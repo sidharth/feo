@@ -5,7 +5,7 @@ published: false
 publish_date: 2023-01-22
 ---
 
-I've been itching to play around with Rust recently. The timing perfectly co-incided with getting fed up with Ghost. So a couple hours of work later, I wrote a barebones static site generator and ported my blog over.
+I've been itching to play around with Rust recently. The timing perfectly co-incided with getting fed up with Ghost. So a couple hours of work later, I wrote a barebones static site generator and ported my blog over. 
 
 ![image](./assets/static-generator.jpg)
 
