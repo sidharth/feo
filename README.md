@@ -28,7 +28,11 @@ This generates static HTML pages for all posts + the index + CSS styles inside t
 
 ### Styling.
 
-Add styles in `styles/common.css`. When you run build with `cargo run`, it copies the stylesheet to `gen/styles`.  
+Add styles in `styles/common.css`. During the build, it copies the stylesheet to `gen/styles/`.  
+
+### Assets
+
+Add assets (images, raw files etc) in `assets/`. During the build, it copies assets to `gen/assets/`.
 
 
 ## TODOs
